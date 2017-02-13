@@ -1,0 +1,22 @@
+package Basics;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Facebook {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.setProperty("webdriver.gecko.driver", "C:\\Selenium\\geckodriver.exe");
+		WebDriver fb = new FirefoxDriver();
+		fb.get("http://www.facebook.com");
+		fb.findElement(By.id("email")).sendKeys("sagar");
+		fb.findElement(By.name("pass")).sendKeys("12345");
+		fb.findElement(By.id("u_0_o")).click();
+		fb.quit();
+		
+	}
+
+}

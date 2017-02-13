@@ -1,0 +1,52 @@
+package Practice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDownListClass 
+{
+
+	public static void main(String[] args) throws InterruptedException 
+	{
+		// create the web driver
+		System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver.exe");
+		WebDriver d = new ChromeDriver();
+		
+		// Open URL
+		d.get("http://www.newtours.demoaut.com/");
+		
+		// enter user name
+		Thread.sleep(5000);
+		d.findElement(By.name("userName")).sendKeys("mahesh");
+		
+		// enter password
+		Thread.sleep(5000);
+		d.findElement(By.name("password")).sendKeys("mahesh");
+		
+		// click on sign in
+		Thread.sleep(5000);
+		d.findElement(By.name("login")).click();
+		
+		// select Drop down list	
+		Select drp=new Select(d.findElement(By.name("fromPort")));
+		
+		Thread.sleep(5000);
+		drp.selectByValue("London");
+		
+		Thread.sleep(5000);
+		drp.selectByValue("Paris");
+		
+		Thread.sleep(5000);
+		drp.selectByIndex(3);
+		
+		Thread.sleep(5000);
+		drp.selectByIndex(8);
+		
+		// close browser
+		d.close();
+
+	}
+
+}
